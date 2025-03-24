@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generator de Albume cu Fotografii</title>
+    <style>
+        /* Resetare CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #eaeaea;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            margin-bottom: 2rem;
+        }
+        
+        .control-panel {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #2980b9;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .photo-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .photo-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .photo-container {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .photo-info {
+            padding: 1rem;
+        }
+        
+        .photo-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+        
+        .photo-date {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #eaeaea;
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Generator de Albume cu Fotografii</h1>
+            <p class="subtitle">Creează albume personalizate din colecția ta de fotografii</p>
+        </header>
+        
+        <main>
+            <section class="control-panel">
+                <div class="form-group">
+                    <label for="album-name">Nume Album</label>
+                    <input type="text" id="album-name" placeholder="Introdu numele albumului...">
+                </div>
+                
+                <div class="form-group">
+                    <label for="layout-style">Stil Layout</label>
+                    <select id="layout-style">
+                        <option value="grid">Grid</option>
+                        <option value="masonry">Masonry</option>
+                        <option value="slideshow">Slideshow</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="photo-folder">Selectează Folderul cu Imagini</label>
+                    <input type="file" id="photo-folder" webkitdirectory directory multiple>
+                </div>
+                
+                <button id="generate-btn">Generează Album</button>
+            </section>
+            
+            <section class="gallery">
+                <!-- Exemplu de card pentru fotografii - vor fi generate dinamic -->
+                <div class="photo-card">
+                    <div class="photo-container">
+                        <img src="images/image1.jpg" alt="Fotografie de exemplu">
+                    </div>
+                    <div class="photo-info">
+                        <h3 class="photo-title">Titlu Fotografie</h3>
+                        <p class="photo-date">24 Martie 2025</p>
+                    </div>
+                </div>
+                
+                <div class="photo-card">
+                    <div class="photo-container">
+                        <img src="images/image2.jpg" alt="Fotografie de exemplu">
+                    </div>
+                    <div class="photo-info">
+                        <h3 class="photo-title">Amintiri de Vară</h3>
+                        <p class="photo-date">15 Martie 2025</p>
+                    </div>
+                </div>
+                
+                <div class="photo-card">
+                    <div class="photo-container">
+                        <img src="images/image3.jpg" alt="Fotografie de exemplu">
+                    </div>
+                    <div class="photo-info">
+                        <h3 class="photo-title">Peisaj Montan</h3>
+                        <p class="photo-date">10 Martie 2025</p>
+                    </div>
+                </div>
+                
+                <div class="photo-card">
+                    <div class="photo-container">
+                        <img src="images/image4.jpg" alt="Fotografie de exemplu">
+                    </div>
+                    <div class="photo-info">
+                        <h3 class="photo-title">Portret de Familie</h3>
+                        <p class="photo-date">5 Martie 2025</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer>
+            <p>&copy; 2025 Generator de Albume cu Fotografii | Proiect Individual</p>
+        </footer>
+    </div>
+    
+    <script>
+        // Cod JavaScript minimal pentru demonstrație
+        document.getElementById('generate-btn').addEventListener('click', function() {
+            alert('Funcționalitatea de generare a albumului va fi implementată în viitor!');
+        });
+    </script>
+</body>
+</html>
